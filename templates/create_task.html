@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<h1>Add new Task</h1>
+<form action="/tasks/add" method="post">
+    {% csrf_token %}
+    <label>Description</label><br/>
+    <input type="text" name="description"/><br/>
+
+    <select name="status">><br/>
+        {% for value, status in statuses%}
+            <option value="{{ value }}">{{ status }}</option>>
+        {% endfor %}
+    </select><br>
+
+    <label>Date</label><br/>
+    <input type="date" name="completion_at"/><br/>
+
+    <input type="submit" value="Create"/>
+
+</form>
+    <p><a href="/">Main Page</a></p>
+</body>
+</html>
