@@ -8,12 +8,9 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Tasks</h1>
-{% for task in tasks %}
-    <h2>{{ task.description }}</h2>
-    <p>{{ task.get_status_display }} </p>
-    <a href="/task/?id={{ task.id }}">more...</a>
-{% endfor %}<br/>
-<p><a href="tasks/add">Add new Task</a></p>
+<h1>{{ task.description }}</h1>
+<p>{{ task.completion_at }}</p>
+<p><a href="/">Main Page</a></p>
+
 </body>
 </html>

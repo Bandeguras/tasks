@@ -10,6 +10,14 @@ def index_view(request):
     }
     return render(request, 'index.html', context)
 
+
+def task_view(request):
+    task_id = request.GET.get('id')
+    task = Task.objects.get(pk=task_id)
+    context = {'task': task}
+    return render(request, 'task_view.html', context)
+
+
 def create_task_view(request):
     if request.method == 'GET':
         return render(request, "create_task.html", {'statuses': STATUS_CHOICES})
