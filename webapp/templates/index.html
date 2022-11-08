@@ -13,6 +13,10 @@
     <h2>{{ task.description }}</h2>
     <p>{{ task.get_status_display }} </p>
     <a href="/task/?id={{ task.id }}">more...</a>
+    <form action="/?id={{ task.id }}" method="post">
+        {% csrf_token %}
+        <input type="submit" value="delete" class="btn btn-danger"/>
+    </form>
 {% endfor %}<br/>
 <p><a href="tasks/add">Add new Task</a></p>
 </body>
