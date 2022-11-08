@@ -1,23 +1,16 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+
+
+{% block content %}
     <h1>Tasks</h1>
-{% for task in tasks %}
-    <h2>{{ task.title }}</h2>
-    <p>{{ task.get_status_display }} </p>
-    <a href="{% url 'view' task.id %}">more...</a>
-    <form action="/?id={{ task.id }}" method="post">
+    {% for task in tasks %}
+        <h2>Название: {{ task.title }}</h2>
+        <p>Статус: {{ task.get_status_display }} </p>
+        <a href="/task/{{ task.id }}" class="btn btn-primary">more</a>
+        <form action="/?id={{ task.id }}" method="post">
         {% csrf_token %}
-        <input type="submit" value="delete" class="btn btn-danger"/>
-    </form>
-{% endfor %}<br/>
-<p><a href="{% url 'create' %}">Add new Task</a></p>
-</body>
-</html>
+            <input type="submit" value="delete" class="btn btn-danger"/>
+        </form>
+    {% endfor %}<br/>
+{% endblock %}

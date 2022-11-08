@@ -1,17 +1,7 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block content %}
 <h1>{{ task.title }}</h1>
 <h2>{{ task.description }}</h2>
 <p>{{ task.completion_at }}</p>
 <p><a href="{% url 'index' %}">Main Page</a></p>
-
-</body>
-</html>
+{% endblock %}
