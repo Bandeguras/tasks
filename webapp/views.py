@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from webapp.models import Task, STATUS_CHOICES
 # Create your views here.
 
@@ -27,5 +27,4 @@ def create_task_view(request):
         if completion_at == '':
             completion_at = None
         new_task = Task.objects.create(description=description, status=status, completion_at=completion_at)
-        context = {'task': new_task}
-        return render(request, 'task_view.html', context)
+        return redirect('view', pk=new_task.pk)
