@@ -1,0 +1,12 @@
+[
+{
+    "model": "webapp.task",
+    "pk": 6,
+    "fields": {
+        "title": "ssss",
+        "description": "sss",
+        "status": "in_progress",
+        "completion_at": "2022-11-06"
+    }
+}
+]
