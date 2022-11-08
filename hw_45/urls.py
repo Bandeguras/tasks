@@ -21,6 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index_view),
     path('tasks/add', create_task_view),
-    path('task/', task_view)
+    path('task/<int:pk>', task_view)
 
 ]
