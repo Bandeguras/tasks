@@ -9,10 +9,13 @@
 </head>
 <body>
 <h1>Add new Task</h1>
-<form action="/tasks/add" method="post">
+<form action="" method="post">
     {% csrf_token %}
+    <label>Title</label><br/>
+    <input type="text" name="title"/><br/>
+
     <label>Description</label><br/>
-    <input type="text" name="description"/><br/>
+    <input type="textarea" name="description"/><br/>
 
     <select name="status">><br/>
         {% for value, status in statuses%}
@@ -21,11 +24,11 @@
     </select><br>
 
     <label>Date</label><br/>
-    <input type="date" name="completion_at"/><br/>
+    <input type="date" name="completion_at"/></br>
 
     <input type="submit" value="Create"/>
 
 </form>
-    <p><a href="/">Main Page</a></p>
+    <p><a href="{% url 'index' %}">Main Page</a></p>
 </body>
 </html>
