@@ -2,24 +2,8 @@
 {% block content %}
 <h1>Add new Task</h1>
 <form action = "" method="post">
-    {% csrf_token %}
-    <label>Title</label><br/>
-    <input type="text" name="title" required/><br/>
+        {% include 'partial/form.html' with button_text='Create'%}
 
-    <label>Description</label><br/>
-    <textarea name="description"></textarea>
-    <br/>
-
-    <select name="status">><br/>
-        {% for value, status in statuses%}
-            <option value="{{ value }}">{{ status }}</option>>
-        {% endfor %}
-    </select><br>
-
-    <label>Date</label><br/>
-    <input type="date" name="completion_at"/></br>
-
-    <input type="submit" value="Create" class="btn btn-success"/>
 </form></br>
     <p><a href="{% url 'index' %}" class="btn btn-primary btn-lg">Main Page</a></p>
 {% endblock %}
