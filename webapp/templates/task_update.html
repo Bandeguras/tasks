@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Update Task</h1>
+<form action = "" method="post">
+    {% csrf_token %}
+    <label>Title</label><br/>
+    <input type="text" name="title" value="{{ task.title }}"/><br/>
+
+    <label>Description</label><br/>
+    <textarea name="description">{{ task.description }}</textarea>
+    <br/>
+
+    <select name="status">><br/>
+        {% for value, status in statuses%}
+            <option value="{{ value }}">{{ status }}</option>>
+        {% endfor %}
+    </select><br>
+
+    <label>Date</label><br/>
+    <input type="date" name="completion_at" value="{{ task.completion_at }}"/></br>
+
+    <input type="submit" value="Update" class="btn btn-success"/>
+</form></br>
+    <p><a href="{% url 'index' %}" class="btn btn-primary btn-lg">Main Page</a></p>
+{% endblock %}
