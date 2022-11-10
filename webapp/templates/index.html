@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block nav %}
+  <li class="nav-item">
+      <a class="nav-link" aria-current="page" href="{% url 'create' %}">Create Task</a>
+  </li>
+{% endblock %}
+
+
+
+{% block content %}
+    <h1>Tasks</h1>
+    {% for task in tasks %}
+        <h2>Название: {{ task.title }}</h2>
+        <p>Статус: {{ task.get_status_display }} </p>
+        <a href="/task/{{ task.id }}" class="btn btn-primary">more</a>
+        <form action="/?id={{ task.id }}" method="post">
+        {% csrf_token %}
+            <input type="submit" value="delete" class="btn btn-danger"/>
+        </form>
+    {% endfor %}<br/>
+{% endblock %}
