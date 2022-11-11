@@ -1,9 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1>Add new Task</h1>
+<h1>Create Task</h1>
 <form action = "" method="post">
-        {% include 'partial/form.html' with button_text='Create'%}
-
+    {% include 'partial/form.html' with button_text='Create'%}
 </form></br>
-    <p><a href="{% url 'index' %}" class="btn btn-primary btn-lg">Main Page</a></p>
 {% endblock %}
